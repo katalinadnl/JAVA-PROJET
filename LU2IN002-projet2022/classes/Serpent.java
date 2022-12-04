@@ -18,9 +18,12 @@ public class Serpent {
     }
 
     public void seDeplacer(int xnew, int ynew){
-        if(Terrain.caseEstVide(xnew,ynew)){
-            
-        }
+        if(energie>10){
+            this.x= xnew;
+            this.y= ynew;
+            energie--;
+        }else{
+            System.out.println("le serpent "+ cmp+" est mort(sans energie)");
+        }       
     }
-
 }
