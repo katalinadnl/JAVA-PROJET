@@ -25,7 +25,7 @@ public class Serpent {
             this.y= ynew;
             energie--;
         }else{
-            System.out.println("le serpent "+ cmp+" est mort(sans energie)");
+            System.out.println("le serpent "+ id+" est mort(sans energie)");
         }       
     }
 
@@ -35,6 +35,18 @@ public class Serpent {
         }else{
             vie= -1; //agent mort
         }
+    }
+
+    public void augEnergie(){
+        energie++;
+    }
+
+    public int getVie(){
+        return vie;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public String toString(){
