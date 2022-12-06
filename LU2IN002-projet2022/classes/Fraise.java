@@ -3,4 +3,7 @@ public class Fraise extends Ressource implements Mangeable{
         super("Fraise", quantite);
     }
     
+    public String toString(){
+        return "Fraise";
+    }
 }
