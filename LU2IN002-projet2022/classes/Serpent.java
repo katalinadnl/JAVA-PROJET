@@ -20,7 +20,7 @@ public class Serpent {
     }
 
     public void seDeplacer(int xnew, int ynew){
-        if(energie>10){
+        if(energie>0){
             this.x= xnew;
             this.y= ynew;
             energie--;
