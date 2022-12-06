@@ -6,4 +6,5 @@ public abstract class Mangeable extends Ressource{
     }
 
     public abstract void vieillir();
+    
 }

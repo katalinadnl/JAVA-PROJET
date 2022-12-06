@@ -1,3 +1,5 @@
+
+
 public class Simulation{
     private Terrain t;
     private Serpent[] agent;
@@ -7,19 +9,19 @@ public class Simulation{
         this.t=ter;
         this.agent=agent;
         this.ressources=ressources;
+    }
 
+    public void placer(){
         for(int j=0; j< ressources.length; j++){
             int x = (int)Math.random()*20;
             int y = (int)Math.random()*20;
             if(t.caseEstVide(x, y)){
-                ressources[j].setPosition(x,y);
                 t.setCase(x, y, ressources[j]);
             }else{
                 while(t.caseEstVide(x, y)==false){
                     x = (int)Math.random()*20;
                     y = (int)Math.random()*20;   
                 }
-                ressources[j].setPosition(x,y);
                 t.setCase(x, y, ressources[j]);
             }
         }
@@ -45,10 +47,17 @@ public class Simulation{
                     if(s.getVie()==-1){
                         System.out.println("Serpent "+ s.getId() +" est mort! ");
                     }
+                    t.videCase(ligne, col);
                 }
             }
         }
-    }   
+    }
+
+    public String toString(){
+        return "Similation";
+    }
+
+
 
 
 }
