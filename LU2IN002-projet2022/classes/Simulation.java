@@ -26,6 +26,10 @@ public class Simulation{
         }
     }
 
+    public Simulation clone(){
+        return new Simulation(t);
+    }
+    
     public void ajoutR(Ressource r){
         ressources.add(r);
     }
@@ -80,6 +84,7 @@ public class Simulation{
                 m.vieillir();
             }
         }
+        System.out.println("Toutes les ressources mangeables qui ont une vie > 6 sont tranformés en cactus "); 
        
     }
 

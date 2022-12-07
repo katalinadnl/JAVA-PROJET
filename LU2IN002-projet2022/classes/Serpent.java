@@ -53,6 +53,10 @@ public class Serpent {
         return energie;
     }
 
+    public Serpent clone(){
+        return new Serpent(x,y);
+    }
+
     public String toString(){
         return "Le serpent "+ id +" a "+vie+" vies et "+energie+" energie\n"+
                 "Positio du serpent "+ id + " : ( " + x + ", " + y + " )." ;
