@@ -1,7 +1,7 @@
 public class Serpent {
     private int x;
     private int y;
-    private int energie=10; 
+    private int energie=5; 
     private int vie;
     private static int cmp=0;
     private int id;
@@ -49,8 +49,13 @@ public class Serpent {
         return id;
     }
 
+    public int getEnergie(){
+        return energie;
+    }
+
     public String toString(){
-        return "Le serpent "+ id +" a "+vie+" vies et "+energie+" energie";
+        return "Le serpent "+ id +" a "+vie+" vies et "+energie+" energie\n"+
+                "Positio du serpent "+ id + " : ( " + x + ", " + y + " )." ;
     }
 
 
