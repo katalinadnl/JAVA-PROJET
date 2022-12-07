@@ -59,7 +59,7 @@ public class Serpent {
 
     public String toString(){
         return "Le serpent "+ id +" a "+vie+" vies et "+energie+" energie\n"+
-                "Positio du serpent "+ id + " : ( " + x + ", " + y + " )." ;
+                "Position du serpent "+ id + " : ( " + x + ", " + y + " )." ;
     }
 
 

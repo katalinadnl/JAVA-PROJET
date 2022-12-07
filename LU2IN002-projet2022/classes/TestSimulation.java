@@ -11,6 +11,7 @@ public class TestSimulation{
             System.out.println(s.toString());
             System.out.println("\n");
         }
+        System.out.println(s1.compterToutesRessources(t.lesRessources()));
         t.affiche(2);
 
         for(int j=0; j<10; j++){
@@ -24,9 +25,11 @@ public class TestSimulation{
                     System.out.println("\n");
                 }
             }
-            t.affiche(2);
+            System.out.println(s1.compterToutesRessources(t.lesRessources()));
+            //t.affiche(2);
         }
-        System.out.println("Les resulats finaux du joeux");
+
+        System.out.println("Les résultats finaux du jeu :");
         System.out.println("\n");
 
         for(Serpent s: s1.getAgents()){
@@ -38,6 +41,9 @@ public class TestSimulation{
                 System.out.println("\n");
             }
         }
+
+        t.affiche(2);
+        System.out.println(s1.compterToutesRessources(t.lesRessources()));
 
         
 
