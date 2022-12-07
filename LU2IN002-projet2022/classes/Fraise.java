@@ -14,6 +14,6 @@ public class Fraise extends Mangeable{
     }
 
     public String toString(){
-        return "Fraise";
+        return "Fraise->  " + super.toString();
     }
 }

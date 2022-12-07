@@ -24,6 +24,8 @@ public class Simulation{
         for(int i=0; i<3; i++){
             agent.add(new Serpent((int)(Math.random()*t.nbLignes), (int)(Math.random()*t.nbColonnes)));
         }
+
+        
     }
 
     public Simulation clone(){
@@ -109,38 +111,33 @@ public class Simulation{
             int newcol=(int)(Math.random()*t.nbColonnes);  //new y
             if((t.sontValides(newligne, newcol))&&(s.getVie()!=-1)){ //on verifie si la case est valide et si le serpent n'est pas mort
                 s.seDeplacer(newligne, newcol); //le serpent se deplace dans un point random
+
                 if(t.getCase(newligne, newcol) instanceof NonToxi){ //si dans la case il y'a une ressource mangeable
-                    Ressource nonToxi= t.getCase(newligne, newcol);
-                    for(int e=0;e < nonToxi.getQuantite(); e++){ //on va ajouter a l'energie du serpent la quantité de ressources sur la case
+                    Ressource nonToxi= t.videCase(newligne, newcol);
+                    for(int e=0;e<nonToxi.getQuantite();e++){ //on va ajouter a l'energie du serpent la quantité de ressources sur la case
                         s.augEnergie(); 
                     }
-                        Ressource vide = t.videCase(newligne, newcol); //on va vider la case si le serpent mange la ressource
-                        ressources.remove(vide);
-                        System.out.println("Le serpent "+ s.getId()+" a mangé une "+ vide.type+ "!!!\n");
+                        
+                    System.out.println("Le serpent "+ s.getId()+" a mangé une "+ nonToxi.type+ " avec la quantité "+nonToxi.getQuantite()+"!!! \n");
                 }else{
                     if(t.getCase(newligne, newcol) instanceof Toxique){//si dans la case il y'a une ressource toxique(cactus)
-                        Ressource toxi= t.getCase(newligne, newcol);
-                        for(int e=0;e < toxi.getQuantite(); e++){ //on va reduire la vie du serpent avec la quantité de ressources sur la case
+                        Ressource toxi= t.videCase(newligne, newcol);
+                        for(int e=0;e<toxi.getQuantite(); e++){ //on va reduire la vie du serpent avec la quantité de ressources sur la case
                             s.updateVie(); //le serpent perd une vie 
                         }
-                        ressources.remove(toxi);
-                        System.out.println("Serpent "+ s.getId() +" a touché un cactus!\n");
-                        if(s.getVie()==-1){  //si le serpent est mort
+                        System.out.println("Serpent "+ s.getId() +" a touché uns cactus avec la quantité "+toxi.getQuantite()+"!!! \n");
+                        if((s.getVie()==-1) || (s.getEnergie()<=0)){  //si le serpent est mort
                             System.out.println("Serpent "+ s.getId() +" est mort!\n ");
                         }
-                        t.videCase(newligne, newcol); //le cactus va disparaitre
+                        
                     }
                 }
-            }
+            } 
         }
-        faireVieillir(); //après chaque deplacement les ressources mangeables vont vieillir 
+        faireVieillir(); //après chaque deplacement les ressources mangeables vont vieillir
     }
 
     public String toString(){
         return "Simulation sur un terrain avec les agents: " + getAgents() + " \n et les ressources: "+ getRessources()+"\n";
     }
-
-
-
-
 }

@@ -8,6 +8,6 @@ public class Cactus extends Ressource implements Toxique{
     }
     
     public String toString(){
-        return "Cactus";
+        return "Cactus->  " + super.toString();
     }
 }

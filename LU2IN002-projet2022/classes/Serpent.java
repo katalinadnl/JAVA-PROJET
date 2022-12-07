@@ -1,7 +1,7 @@
 public class Serpent {
     private int x;
     private int y;
-    private int energie=5; 
+    public int energie=5; 
     private int vie;
     private static int cmp=0;
     private int id;
@@ -24,9 +24,8 @@ public class Serpent {
             this.x= xnew;
             this.y= ynew;
             energie--;
-        }else{
-            System.out.println("le serpent "+ id+" est mort(sans energie)");
-        }       
+        }
+            
     }
 
     public void updateVie(){

@@ -15,7 +15,7 @@ public class Banane extends Mangeable{
     }
 
     public String toString(){
-        return "Banane";
+        return "Banane ->  " + super.toString() ;
     }
     
 }
