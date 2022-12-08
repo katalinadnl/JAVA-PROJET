@@ -1,4 +1,5 @@
-
+//DANILA Catalina 21103654
+//SAAD Maria 21106783
 
 public class TestSimulation{
     public static void main(String[] args){
@@ -24,7 +25,7 @@ public class TestSimulation{
                 s1.deplacerTous(); 
                 System.out.println("\n");
                 for(Serpent s: s1.getAgents()){ //afficher chaque fois les serpents
-                    if((s.getVie()!=-1) ||(s.getEnergie()>0)){ //s'ils ont pas de vie ils nensont pas affichés
+                    if((s.getVie()!=-1) || (s.getEnergie()<=0)){ //s'ils ont pas de vie ils ne sont pas affichés
                         System.out.println(s.toString());
                         System.out.println("\n");
                     }
@@ -45,8 +46,6 @@ public class TestSimulation{
                     System.out.println("\n");
                 }
             }
-
-
 
             t.affiche(2);
             System.out.println(s1.compterToutesRessources(t.lesRessources()));

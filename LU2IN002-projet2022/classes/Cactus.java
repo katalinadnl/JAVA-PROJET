@@ -1,3 +1,6 @@
+//DANILA Catalina 21103654
+//SAAD Maria 21106783
+
 public class Cactus extends Ressource implements Toxique{
     
     public Cactus(int quantite){

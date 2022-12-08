@@ -1,3 +1,6 @@
+//DANILA Catalina 21103654
+//SAAD Maria 21106783
+
 import java.util.ArrayList;
 
 public class Simulation{
