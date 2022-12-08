@@ -69,7 +69,7 @@ public class Simulation{
             int x = (int)(Math.random()*t.nbLignes);
             int y = (int)(Math.random()*t.nbColonnes);
             
-            while((!t.caseEstVide(x, y))&&(!t.sontValides(x, y))){ //on va verifier si la case du terrain est vide et valide 
+            while(!t.caseEstVide(x, y)){ //on va verifier si la case du terrain est vide et valide 
                 x = (int)(Math.random()*t.nbLignes);
                 y = (int)(Math.random()*t.nbColonnes);
             }
@@ -117,15 +117,22 @@ public class Simulation{
                     for(int e=0;e<nonToxi.getQuantite();e++){ //on va ajouter a l'energie du serpent la quantité de ressources sur la case
                         s.augEnergie(); 
                     }
-                        
-                    System.out.println("Le serpent "+ s.getId()+" a mangé une "+ nonToxi.type+ " avec la quantité "+nonToxi.getQuantite()+"!!! \n");
+                    nonToxi.initialisePosition(); //on initialise la position de ressource 
+                    System.out.println("Le serpent "+ s.getId()+" a mangé une "+ nonToxi.type+ " avec la quantité "+nonToxi.getQuantite()+" !!! \n");
+
+                    if((s.getVie()==-1) || (s.getEnergie()<=0)){  //si le serpent est mort
+                        System.out.println("Serpent "+ s.getId() +" est mort!\n ");
+                    }
+
                 }else{
                     if(t.getCase(newligne, newcol) instanceof Toxique){//si dans la case il y'a une ressource toxique(cactus)
                         Ressource toxi= t.videCase(newligne, newcol);
                         for(int e=0;e<toxi.getQuantite(); e++){ //on va reduire la vie du serpent avec la quantité de ressources sur la case
                             s.updateVie(); //le serpent perd une vie 
                         }
+                        toxi.initialisePosition(); //on initialise la position de ressource 
                         System.out.println("Serpent "+ s.getId() +" a touché uns cactus avec la quantité "+toxi.getQuantite()+"!!! \n");
+
                         if((s.getVie()==-1) || (s.getEnergie()<=0)){  //si le serpent est mort
                             System.out.println("Serpent "+ s.getId() +" est mort!\n ");
                         }
